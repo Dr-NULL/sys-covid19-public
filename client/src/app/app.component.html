@@ -1,0 +1,23 @@
+<!-- Barra Superior -->
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="this.showMenu = !this.showMenu">
+    <i class="fas fa-bars fa-2x"></i>
+  </button>
+  <a [routerLink]="''">
+    <span>Encuesta Covid-19</span>
+  </a>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <!-- Menú Lateral -->
+  <mat-sidenav
+  [(opened)]="this.showMenu">
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+
+  <!-- Contenido -->
+  <mat-sidenav-content [@routeState]="this.routeChange(outlet)">
+    <router-outlet #outlet="outlet">
+    </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,48 @@
+<mat-card>
+    <mat-card-title>
+        Nuevo Usuario System
+    </mat-card-title>
+    <mat-card-content>
+        <p>
+            Se requiere de una cuenta del tipo <strong>system</strong> para que gestione a nivel de <strong>root</strong>
+            todas las configuraciones del sistema.
+        </p>
+        <form [formGroup]="this.formGroup" (ngSubmit)="this.onSubmit()">
+            <app-flex-row>
+                <app-col>
+                    <mat-form-field>
+                        <mat-label>RUT:</mat-label>
+                        <input matInput type="text" formControlName="rut" (input)="this.onRUTChange()" />
+                    </mat-form-field>
+                </app-col>
+                <app-col>
+                    <mat-form-field>
+                        <mat-label>E-Mail:</mat-label>
+                        <input matInput type="text" formControlName="mail" />
+                    </mat-form-field>
+                </app-col>
+                <app-col>
+                    <mat-form-field>
+                        <mat-label>Nick:</mat-label>
+                        <input matInput type="text" formControlName="nick" />
+                    </mat-form-field>
+                </app-col>
+                <app-col>
+                    <mat-form-field>
+                        <mat-label>Password:</mat-label>
+                        <input matInput type="password" formControlName="pass" />
+                    </mat-form-field>
+                </app-col>
+                <app-col>
+                    <br />
+                    <button type="submit" mat-raised-button
+                    [disabled]="this.formGroup.invalid"
+                    color="primary">
+                        <i class="far fa-save"></i>
+                        <span>Guardar</span>
+                    </button>
+                </app-col>
+            </app-flex-row>
+        </form>
+    </mat-card-content>
+</mat-card>

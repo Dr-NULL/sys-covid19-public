@@ -1,0 +1,112 @@
+<mat-card>
+    <mat-card-title>
+        Crear Usuario
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="this.formGroup" (ngSubmit)="this.onSubmit()">
+            <app-flex-row [cols]="4">
+                <app-col [md]="4">
+                    <mat-form-field>
+                        <mat-label>E-Mail:</mat-label>
+                        <input matInput type="text"
+                        formControlName="mail"
+                        autocomplete="off" />
+                        <mat-error>Tiene que ser un mail válido</mat-error>
+                    </mat-form-field>
+                </app-col>
+                <app-col [md]="2">
+                    <mat-form-field>
+                        <mat-label>RUT:</mat-label>
+                        <input matInput type="text"
+                        formControlName="rut"
+                        autocomplete="off"
+                        (input)="this.onRUTChange()" />
+                        <mat-error>Tiene que ser un RUT válido</mat-error>
+                    </mat-form-field>
+                </app-col>
+                <app-col [md]="2">
+                    <mat-form-field>
+                        <mat-label>Tipo Usuario:</mat-label>
+                        <mat-select formControlName="type">
+                            <mat-option
+                            *ngFor="let type of this.types"
+                            [value]="type.id">
+                                {{ type.descript }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error>Este campo no se puede omitir...</mat-error>
+                    </mat-form-field>
+                </app-col>
+                <app-col [md]="2">
+                    <mat-form-field>
+                        <mat-label>Nick:</mat-label>
+                        <input matInput type="text"
+                        formControlName="nick"
+                        autocomplete="off" />
+                        <mat-error>Tiene que tener entre 4 y 20 caracteres...</mat-error>
+                    </mat-form-field>
+                </app-col>
+                <app-col [md]="2">
+                    <mat-form-field>
+                        <mat-label>Password:</mat-label>
+                        <input matInput type="password"
+                        formControlName="pass" />
+                        <mat-error>Tiene que tener entre 4 y 30 caracteres...</mat-error>
+                    </mat-form-field>
+                </app-col>
+                <app-col>
+                    <br />
+                    <button type="submit" mat-raised-button
+                    [disabled]="this.formGroup.invalid"
+                    color="primary">
+                        <i class="far fa-save"></i>
+                        <span>Guardar</span>
+                    </button>
+                </app-col>
+            </app-flex-row>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-title>
+        Listado de Usuarios
+    </mat-card-title>
+    <mat-card-content [class]="'overflow'">
+        <table mat-table [dataSource]="this.users">
+            <ng-container matColumnDef="rut">
+                <th mat-header-cell *matHeaderCellDef>RUT</th>
+                <td mat-cell *matCellDef="let item">{{ item.rut }}</td>
+            </ng-container>
+            
+            <ng-container matColumnDef="mail">
+                <th mat-header-cell *matHeaderCellDef>E-Mail</th>
+                <td mat-cell *matCellDef="let item">{{ item.mail }}</td>
+            </ng-container>
+            
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef>Tipo Usuario</th>
+                <td mat-cell *matCellDef="let item">{{ item.typeUser.descript }}</td>
+            </ng-container>
+            
+            <ng-container matColumnDef="nick">
+                <th mat-header-cell *matHeaderCellDef>Nick</th>
+                <td mat-cell *matCellDef="let item">{{ item.nick }}</td>
+            </ng-container>
+            
+            <ng-container matColumnDef="kill">
+                <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+                <td mat-cell *matCellDef="let item">
+                    <button mat-raised-button
+                    color="warn"
+                    (click)="this.onKill(item.id)">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="this.display"></tr>
+            <tr mat-row *matRowDef="let row; columns: this.display"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,34 @@
+mat-toolbar {
+  a {
+    padding: 0 1rem;
+    text-decoration: none!important;
+    color: #fff!important;
+  }
+}
+
+mat-sidenav-container {
+    height: calc(100% - 4rem);
+  
+    mat-sidenav {
+      width: 70vw;
+      max-width: 480px;
+    }
+  
+    mat-sidenav-content {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+  
+      & ::ng-deep > *:not(router-outlet) {
+        position: absolute;
+        display: flex;
+        flex-flow: column nowrap;
+        
+        box-sizing: border-box;
+        padding: 1.5rem;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  

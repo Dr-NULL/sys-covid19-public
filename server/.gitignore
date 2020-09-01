@@ -1,0 +1,8 @@
+# JS to be executed
+node_modules
+dist/*
+
+# Configuration files
+*config.json
+secret.aes
+!tsconfig.json

@@ -1,0 +1,24 @@
+:host {
+    justify-content: flex-start!important;
+    align-items: center!important;
+}
+
+mat-card {
+    max-width: 1024px;
+}
+
+app-col {
+    h3 {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    mat-radio-group {
+        width: 100%;
+
+        mat-radio-button {
+            margin: 0 0.5rem;
+            padding: 0.5rem 0;
+        }
+    }
+}

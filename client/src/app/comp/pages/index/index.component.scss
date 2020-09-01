@@ -1,0 +1,17 @@
+:host {
+    align-items: center;
+}
+
+.target {
+    border-radius: 0.25rem;
+    padding: 1rem;
+    max-width: 640px;
+    
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+
+    p {
+        text-align: justify;
+    }
+}

@@ -1,0 +1,31 @@
+export interface ClientError {
+  400: string;
+  401: string;
+  402: string;
+  403: string;
+  404: string;
+  405: string;
+  406: string;
+  407: string;
+  408: string;
+  409: string;
+  410: string;
+  411: string;
+  412: string;
+  413: string;
+  414: string;
+  415: string;
+  416: string;
+  417: string;
+  418: string;
+  421: string;
+  422: string;
+  423: string;
+  424: string;
+  425: string;
+  426: string;
+  428: string;
+  429: string;
+  431: string;
+  451: string;
+}

@@ -1,0 +1,9 @@
+button > .mat-button-wrapper {
+    & > * {
+        padding-left: 1rem;
+    }
+
+    & > *:nth-child(1) {
+        padding-left: 0;
+    }
+}

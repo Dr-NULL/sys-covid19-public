@@ -1,0 +1,38 @@
+<!--Instanciación de link/nodo-->
+<ng-container>
+    <a *ngIf="this.model.path"
+    [routerLink]="this.model.path"
+    class="container no-select"
+    (click)="this.toggle()">
+        <ng-container
+        *ngTemplateOutlet="outlet">
+        </ng-container>
+    </a>
+
+    <div *ngIf="!this.model.path"
+    class="container no-select"
+    (click)="this.toggle()">
+        <ng-container
+        *ngTemplateOutlet="outlet">
+        </ng-container>
+    </div>
+</ng-container>
+
+<!--Contenido Nodo-->
+<ng-template #outlet>
+    <i [class]="this.model.icon"></i>
+    <span>{{ this.model.text }}</span>
+
+    <i *ngIf="this.hasChildren()"
+    class="toggle fas fa-angle-right">
+    </i>
+</ng-template>
+
+<!--Nodos Hijos-->
+<div *ngIf="this.hasChildren()"
+class="children">
+    <app-sidenav-tree
+    *ngFor="let node of this.model.children"
+    [model]="node">
+    </app-sidenav-tree>
+</div>
